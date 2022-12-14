@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<spacescapelayers>
+    <layer>
+        <destBlendFactor>one</destBlendFactor>
+        <ditherAmount>0.5</ditherAmount>
+        <gain>0.5</gain>
+        <hdrMultiplier>1</hdrMultiplier>
+        <hdrPower>1</hdrPower>
+        <innerColor>0 0 0 1</innerColor>
+        <lacunarity>2</lacunarity>
+        <name>SpacescapeLayer0</name>
+        <noiseType>fbm</noiseType>
+        <octaves>2</octaves>
+        <offset>5</offset>
+        <outerColor>0.0392157 0 0.0627451 1</outerColor>
+        <powerAmount>1.06</powerAmount>
+        <previewTextureSize>1024</previewTextureSize>
+        <scale>1.16</scale>
+        <seed>0</seed>
+        <shelfAmount>-0.49</shelfAmount>
+        <sourceBlendFactor>one</sourceBlendFactor>
+        <type>noise</type>
+    </layer>
+    <layer>
+        <destBlendFactor>one</destBlendFactor>
+        <farColor>0.0980392 0.0980392 0.0980392 1</farColor>
+        <hdrMultiplier>1</hdrMultiplier>
+        <hdrPower>1</hdrPower>
+        <maskEnabled>false</maskEnabled>
+        <maskGain>1</maskGain>
+        <maskLacunarity>2</maskLacunarity>
+        <maskNoiseType>fbm</maskNoiseType>
+        <maskOctaves>1</maskOctaves>
+        <maskOffset>2</maskOffset>
+        <maskPower>2</maskPower>
+        <maskScale>2</maskScale>
+        <maskSeed>2</maskSeed>
+        <maskThreshold>1</maskThreshold>
+        <name>SpacescapeLayer2</name>
+        <nearColor>1 1 0.921569 1</nearColor>
+        <numPoints>2500</numPoints>
+        <pointSize>1</pointSize>
+        <seed>1</seed>
+        <sourceBlendFactor>one</sourceBlendFactor>
+        <type>points</type>
+    </layer>
+    <layer>
+        <dataFile></dataFile>
+        <destBlendFactor>one</destBlendFactor>
+        <farColor>0.0352941 0 0.0823529 1</farColor>
+        <hdrMultiplier>1</hdrMultiplier>
+        <hdrPower>1</hdrPower>
+        <maskEnabled>false</maskEnabled>
+        <maskGain>0.5</maskGain>
+        <maskLacunarity>2</maskLacunarity>
+        <maskNoiseType>fbm</maskNoiseType>
+        <maskOctaves>1</maskOctaves>
+        <maskOffset>1</maskOffset>
+        <maskPower>1</maskPower>
+        <maskScale>1.05</maskScale>
+        <maskSeed>1</maskSeed>
+        <maskThreshold>0</maskThreshold>
+        <maxSize>1</maxSize>
+        <minSize>-1</minSize>
+        <name>SpacescapeLayer1</name>
+        <nearColor>0.0627451 0 0.105882 1</nearColor>
+        <numBillboards>750</numBillboards>
+        <seed>0</seed>
+        <sourceBlendFactor>one</sourceBlendFactor>
+        <texture>default.png</texture>
+        <type>billboards</type>
+    </layer>
+    <layer>
+        <dataFile></dataFile>
+        <destBlendFactor>one</destBlendFactor>
+        <farColor>0.0196078 0.494118 0.639216 0.392157</farColor>
+        <hdrMultiplier>1</hdrMultiplier>
+        <hdrPower>1</hdrPower>
+        <maskEnabled>false</maskEnabled>
+        <maskGain>0.5</maskGain>
+        <maskLacunarity>2</maskLacunarity>
+        <maskNoiseType></maskNoiseType>
+        <maskOctaves>1</maskOctaves>
+        <maskOffset>1</maskOffset>
+        <maskPower>1</maskPower>
+        <maskScale>1</maskScale>
+        <maskSeed>1</maskSeed>
+        <maskThreshold>0.1</maskThreshold>
+        <maxSize>2.5</maxSize>
+        <minSize>0.5</minSize>
+        <name>SpacescapeLayer3</name>
+        <nearColor>0.309804 0.0117647 0.435294 0.392157</nearColor>
+        <numBillboards>10</numBillboards>
+        <seed>5</seed>
+        <sourceBlendFactor>one_minus_src_alpha</sourceBlendFactor>
+        <texture>default.png</texture>
+        <type>billboards</type>
+    </layer>
+    <layer>
+        <dataFile></dataFile>
+        <destBlendFactor>one</destBlendFactor>
+        <farColor>0.415686 0 0 0.0392157</farColor>
+        <hdrMultiplier>1</hdrMultiplier>
+        <hdrPower>1</hdrPower>
+        <maskEnabled>false</maskEnabled>
+        <maskGain>0.5</maskGain>
+        <maskLacunarity>2</maskLacunarity>
+        <maskNoiseType></maskNoiseType>
+        <maskOctaves>1</maskOctaves>
+        <maskOffset>1</maskOffset>
+        <maskPower>1</maskPower>
+        <maskScale>1</maskScale>
+        <maskSeed>1</maskSeed>
+        <maskThreshold>0</maskThreshold>
+        <maxSize>0.5</maxSize>
+        <minSize>0.75</minSize>
+        <name>SpacescapeLayer4</name>
+        <nearColor>1 0 0 0.0588235</nearColor>
+        <numBillboards>100</numBillboards>
+        <seed>0</seed>
+        <sourceBlendFactor>src_alpha</sourceBlendFactor>
+        <texture>default.png</texture>
+        <type>billboards</type>
+    </layer>
+</spacescapelayers>

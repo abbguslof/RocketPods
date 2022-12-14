@@ -1,0 +1,44 @@
+newmtl hull_silver
+Kd 0.527115 0.527115 0.527115
+Ke 0 0 0
+Ka 1 1 1
+Ks 1 1 1
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+
+newmtl intake_strakes
+Kd 0.527115 0.527115 0.527115
+Ke 0 0 0
+Ka 1 1 1
+Ks 1 1 1
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+
+newmtl intakes
+Kd 0.00784314 0.00784314 0.00784314
+Ke 0 0 0
+Ka 1 1 1
+Ks 0.6 0.6 0.6
+Ns 400
+Tr 0
+d 1
+Ni 1.5
+Tf 1 1 1
+
+newmtl rocket_bell
+Kd 0.647059 0.534129 0.167869
+Ke 0 0 0
+Ka 1 1 1
+Ks 0.681 0.681 0.681
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+
