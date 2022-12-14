@@ -1,68 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Drawing;
 using UnityEngine;
-using UnityEngine.Experimental.AI;
-using UnityEngine.UIElements;
-using static UnityEditor.FilePathAttribute;
 
 public class CustomGravity : MonoBehaviour
 {
-    //public GameObject Map;
-    //public Rigidbody MapRb;
-    public Vector3 ClosestMapPoint;
-    private Collider MapCollider;
-
-    private GameObject[] MapColliders;
+    public Vector3 ClosestPointOnMapCollider;
+    public GameObject[] MapParts;
 
     public float GravityForce = 9.8f;
-
-    private Collider PlayerCollider;
-
-    private Rigidbody rb;
+    public Rigidbody PlayerRB;
 
     private void Awake()
     {
-        PlayerCollider = GetComponent<Collider>();
-        rb = GetComponent<Rigidbody>();
-        //MapCollider = Map.GetComponent<Collider>();
+        PlayerRB = GetComponent<Rigidbody>();
 
-        MapColliders = GameObject.FindGameObjectsWithTag("Map");
+        MapParts = GameObject.FindGameObjectsWithTag("Map");
     }
-    GameObject GetClosestMapPart(GameObject[] list)
+    GameObject GetClosestMapObject(GameObject[] list)
     {
-        GameObject tMin = null;
-        float minDist = Mathf.Infinity;
-        Vector3 currentPos = transform.position;
-        foreach (GameObject t in list)
+        GameObject ClosestObject = null;
+        float MinimumDistance = Mathf.Infinity;
+        Vector3 CurrentPosition = transform.position;
+        foreach (GameObject CurrentObject in list)
         {
-            float dist = Vector3.Distance(t.transform.position, transform.position);
-            if (dist < minDist)
+            float Distance = Vector3.Distance(CurrentObject.transform.position, transform.position);
+            if (Distance < MinimumDistance)
             {
-                tMin = t;
-                minDist = dist;
+                ClosestObject = CurrentObject;
+                MinimumDistance = Distance;
             }
         }
-        return tMin;
+        return ClosestObject;
     }
     private void FixedUpdate()
     {
         customGravity();
-    }   
+    }
     private void customGravity()
     {
-        GameObject ClosestColliderInMap = GetClosestMapPart(MapColliders);
+        GameObject ClosestColliderPartInMap = GetClosestMapObject(MapParts);
+        ClosestPointOnMapCollider = ClosestColliderPartInMap.GetComponent<Collider>().ClosestPoint(transform.position);
 
-        ClosestMapPoint = ClosestColliderInMap.GetComponent<Collider>().ClosestPoint(transform.position);
+        Vector3 Distance = ClosestPointOnMapCollider - transform.position;
+        Vector3 Direction = (this.transform.position - ClosestPointOnMapCollider).normalized;
+        if (Direction.magnitude == 0f) return;
+        Vector3 Acceleration = Distance / (Distance.magnitude);
 
-        Vector3 dist = ClosestMapPoint - transform.position;
-
-        Vector3 dir = (this.transform.position - ClosestMapPoint).normalized;
-        if (dist.magnitude == 0f) return;
-        Vector3 acceleration = dist / (dist.magnitude);
-        
-        Debug.DrawRay(transform.position, dist);
-        rb.AddForce(acceleration * GravityForce);
+        PlayerRB.AddForce(Acceleration * GravityForce * 1000 + (10 * Distance));
     }
 }
