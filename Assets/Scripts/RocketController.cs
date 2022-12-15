@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class RocketController : MonoBehaviour
 {
+    CustomGravity CustomGravity;
+
     public Transform PlayerModel;
+    public Transform HitBoxObject;
     public Rigidbody SphereColliderRb;
+    public Transform RotationHandler;
 
     public float steering = 80f;
     public float speed = 3;
@@ -13,7 +17,7 @@ public class RocketController : MonoBehaviour
     float rotate, currentRotate;
     void Start()
     {
-        
+        CustomGravity = HitBoxObject.GetComponent<CustomGravity>();
     }
     void Update()
     {
@@ -22,7 +26,6 @@ public class RocketController : MonoBehaviour
         SphereColliderRb.transform.localPosition = new Vector3(0, 0, 0);
         PlayerModel.position = transform.position;
 
-        // lol
         if (Input.GetKey(KeyCode.W))
         {
             SphereColliderRb.AddForce(PlayerModel.forward * speed, ForceMode.Acceleration);
@@ -40,16 +43,7 @@ public class RocketController : MonoBehaviour
 
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f); rotate = 0f;
 
-        // Rotera efter Marken
-
-        RaycastHit hitOn;
-        RaycastHit hitNear;
-
-        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out hitOn, 10f);
-        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out hitNear, 20f);
-
-        PlayerModel.up = Vector3.Lerp(PlayerModel.up, hitNear.normal, Time.deltaTime * 8.0f);
-        PlayerModel.Rotate(0, transform.eulerAngles.y, 0);
+        RotateAfterGround();
     }
     void FixedUpdate()
     {
@@ -58,5 +52,11 @@ public class RocketController : MonoBehaviour
     public void Steer(int direction, float amount)
     {
         rotate = (steering * direction) * amount;
+    }
+    public void RotateAfterGround() 
+    {
+        RotationHandler.transform.LookAt(CustomGravity.ClosestPointOnMapCollider);
+        
+        Debug.DrawRay(PlayerModel.transform.position, -PlayerModel.transform.up);
     }
 }
