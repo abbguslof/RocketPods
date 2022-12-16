@@ -46,6 +46,6 @@ public class CustomGravity : MonoBehaviour
         if (Direction.magnitude == 0f) return;
         Vector3 Acceleration = Distance / (Distance.magnitude);
 
-        PlayerRB.AddForce(Acceleration * GravityForce * 1000 + (10 * Distance));
+        PlayerRB.AddForce(Acceleration * GravityForce * 125 + (600 * Distance));
     }
 }
